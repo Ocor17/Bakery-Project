@@ -1,0 +1,23 @@
+{% extends 'polls/base.html'%}
+
+
+{% block Customer %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<div class="btn-group" >
+<button >
+   <a href="{% url 'polls:viewCustomers'%}">Customers </a>   
+</button>
+<button >
+    <a href="{% url 'polls:viewProducts'%}">Products </a>
+</button>
+<button >
+    <a href="{% url 'polls:viewPurchase'%}">Purchase </a>
+</button>
+</div>
+
+
+{% endblock Customer%}

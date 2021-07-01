@@ -1,0 +1,34 @@
+
+{% extends 'polls/base.html'%}
+
+
+{% block Customer %}
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'polls:mainMenu'%}" >Main Menu</a>
+  <a href="{% url 'polls:viewCustomers' %}"class="active">Customers</a>
+  <a href="{% url 'polls:addCustomer' %}">Add Customers</a>
+  <a href="#about">About</a>
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<table class="table" width="device-width">
+  <thead>
+  <td> Name</td>
+  <td> Address</td>
+  <td> Phone</td>
+  <td> ID </td>
+
+</thead>
+{% for item in dis %}
+<tr>
+<td>{{item.cname}}</td> 
+<td>{{item.caddress}} </td>
+<td>{{item.cphonenumber}}</td> 
+<td>{{item.cid}} </td>
+
+</tr>
+{% endfor%}
+</table>
+{% endblock Customer%}

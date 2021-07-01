@@ -1,0 +1,35 @@
+{% extends 'polls/base.html'%}
+
+
+{% block Customer %}
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'polls:mainMenu'%}" >Main Menu</a>
+  <a href="{% url 'polls:viewProducts' %} " class="active">Products</a>
+  <a href="{% url 'polls:addProduct' %}">Add Product</a>
+  <a href="#about">About</a>
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<table class="table" width="device-width">
+  <thead>
+  <td> Name</td>
+  <td> Price</td>
+  <td> Allergens</td>
+  <td> Stock </td>
+  <td> PID </td>
+
+</thead>
+{% for item in product %}
+<tr>
+<td>{{item.pname}}</td> 
+<td>{{item.pprice}} </td>
+<td>{{item.pallergens}}</td> 
+<td>{{item.pstock}} </td>
+<td>{{item.pid}}</td>
+
+</tr>
+{% endfor%}
+</table>
+{% endblock Customer%}

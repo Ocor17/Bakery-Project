@@ -1,0 +1,44 @@
+{% extends 'polls/base.html'%}
+
+
+{% block Customer %}
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'polls:mainMenu'%}" >Main Menu</a>
+  <a href="{% url 'polls:viewPurchase' %}" class="active">Purchase</a>
+  <a href="{% url 'polls:addPurchase' %}">Add Purchase</a>
+  <a href="{% url 'polls:addOrder' %}">Add Order</a>
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<table class="table" width="device-width">
+  <thead>
+  <td> Transaction ID</td>
+  <td> Customer ID</td>
+  <td> Product ID</td>
+  <td> quantity </td>
+  <td> order date </td>
+  <td> fulfill date</td>
+  <td> is paid</td>
+
+</thead>
+{% for item in purchase%}
+<tr>
+<td>{{item.transactionid}}</td> 
+<td>{{item.cid.cid}} </td>
+<td>{{item.pid.pid}}</td> 
+<td>{{item.puquantity}} </td>
+<td>{{item.puorderdate}}</td>
+<td>{{item.pufulfilldate}} </td>
+<td>{% if item.pupaid == 1 %}
+        YES
+    {% else %}
+        NO
+    {% endif %}
+</td>
+
+</tr>
+{% endfor%}
+</table>
+{% endblock Customer%}
